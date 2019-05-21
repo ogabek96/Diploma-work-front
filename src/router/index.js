@@ -107,6 +107,66 @@ export const asyncRouterMap = [
   },
 
   {
+    path: '/registration',
+    component: Layout,
+    meta: {
+      roles: ['SUPER_ADMIN']
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/registration/index'),
+        name: 'Регистрация пациента',
+        meta: {
+          title: 'Регистрация пациента',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/first-evaluation',
+    component: Layout,
+    meta: {
+      roles: ['SUPER_ADMIN']
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/first-evaluation'),
+        name: 'Модуль первичного выявления',
+        meta: {
+          title: 'Модуль первичного выявления',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/anamnestic',
+    component: Layout,
+    meta: {
+      roles: ['SUPER_ADMIN']
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/anamnestic'),
+        name: 'Модуль анамнестические данные',
+        meta: {
+          title: 'Модуль анамнестические данные',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        }
+      }
+    ]
+  },
+  {
     path: '/companies',
     component: Layout,
     children: [
