@@ -91,6 +91,38 @@ export default new Router({
 export const asyncRouterMap = [
 
   {
+    path: '/patients',
+    component: Layout,
+    meta: {
+      roles: ['SUPER_ADMIN']
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/patients/index'),
+        name: 'Пациенты',
+        meta: {
+          title: 'Пациенты',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        }
+      },
+      {
+        path: '/patients/:id/edit',
+        component: () => import('@/views/patients/edit'),
+        name: 'Пациенты',
+        meta: {
+          title: 'Пациенты',
+          roles: ['SUPER_ADMIN'],
+          noCache: true,
+          activeMenu: '/patients/index' },
+        hidden: true
+      }
+    ]
+  },
+
+  {
     path: '/registration',
     component: Layout,
     meta: {

@@ -11,7 +11,6 @@ const user = {
     token: getToken(),
     name: '',
     roles: [],
-    ownerId: '',
     setting: {
       articlePlatform: []
     }
@@ -32,9 +31,6 @@ const user = {
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles
-    },
-    SET_OWNER_ID: (state, id) => {
-      state.ownerId = id
     }
   },
 
@@ -72,11 +68,6 @@ const user = {
             commit('SET_NAME', data.username)
             commit('SET_ROLES', [data.role])
 
-            if (data.role === 'OWNER') {
-              commit('SET_OWNER_ID', data.sub)
-            } else if (data.role === 'SUPER_ADMIN') {
-              commit('SET_OWNER_ID', localStorage.getItem('SELECTED_OWNER_ID'))
-            }
             resolve({
               username: data.username,
               roles: [data.role]
@@ -87,14 +78,6 @@ const user = {
         } catch (err) {
           reject('Verification failed, please login again.')
         }
-      })
-    },
-    // Set selected owner id
-    SetOwnerId({ commit }, id) {
-      return new Promise((resolve, reject) => {
-        commit('SET_OWNER_ID', id)
-        localStorage.setItem('SELECTED_OWNER_ID', id)
-        resolve()
       })
     },
 

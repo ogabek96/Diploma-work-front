@@ -2,7 +2,7 @@
   <div v-loading="loading" class="createItem-container">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <span>Регистрация пацента</span>
+        <span>Редактирования данных о пациенте</span>
       </div>
 
       <passport-form v-model="passportFormData"/>
@@ -18,7 +18,7 @@
 import waves from '@/directive/waves' // Waves directive
 import passportForm from '@/components/PassportForm'
 
-import { create as createPatient } from '@/api/patient'
+import { update as updatePatient, getById as getPatientById } from '@/api/patient'
 
 export default {
   components: { passportForm },
@@ -26,19 +26,32 @@ export default {
   data() {
     return {
       loading: false,
-      passportFormData: {}
+      passportFormData: {},
+      currentPatientId: this.$route.params && this.$route.params.id
     }
   },
+  created() {
+    this.fillForm()
+  },
   methods: {
+    async fillForm() {
+      this.loading = true
+      getPatientById(this.currentPatientId)
+        .then(patientReq => {
+          this.passportFormData = patientReq.data.payload.patient
+        })
+      this.loading = false
+    },
     save() {
       this.loading = true
-      createPatient(this.passportFormData)
+      updatePatient(this.passportFormData)
         .then(res => {
           if (res.data.code === 200) {
             this.loading = false
+            this.$router.push('/patients/index')
             this.$notify({
               title: 'Успешно',
-              message: 'Пациент успешно зарегистрирован.',
+              message: 'Данные о пациенте успешно редактирован.',
               type: 'success',
               duration: 2000
             })
