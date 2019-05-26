@@ -1,6 +1,7 @@
+
+import jwt from 'jsonwebtoken'
 import { loginByUsername, signUp as signUpUser } from '@/api/auth'
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import jwt from 'jsonwebtoken'
 
 const user = {
   state: {

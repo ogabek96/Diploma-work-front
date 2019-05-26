@@ -42,26 +42,31 @@ export const constantRouterMap = [
       }
     ]
   },
+
   {
     path: '/login',
     component: () => import('@/views/login/index'),
     hidden: true
   },
+
   {
     path: '/auth-redirect',
     component: () => import('@/views/login/authredirect'),
     hidden: true
   },
+
   {
     path: '/404',
     component: () => import('@/views/errorPage/404'),
     hidden: true
   },
+
   {
     path: '/401',
     component: () => import('@/views/errorPage/401'),
     hidden: true
   },
+
   {
     path: '',
     component: Layout,
@@ -86,27 +91,6 @@ export default new Router({
 export const asyncRouterMap = [
 
   {
-    path: '/users',
-    component: Layout,
-    meta: {
-      roles: ['SUPER_ADMIN']
-    },
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/users/index'),
-        name: 'Users',
-        meta: {
-          title: 'Users',
-          roles: ['SUPER_ADMIN'],
-          icon: 'peoples',
-          noCache: true
-        }
-      }
-    ]
-  },
-
-  {
     path: '/registration',
     component: Layout,
     meta: {
@@ -126,6 +110,7 @@ export const asyncRouterMap = [
       }
     ]
   },
+
   {
     path: '/first-evaluation',
     component: Layout,
@@ -146,6 +131,7 @@ export const asyncRouterMap = [
       }
     ]
   },
+
   {
     path: '/anamnestic',
     component: Layout,
@@ -166,164 +152,22 @@ export const asyncRouterMap = [
       }
     ]
   },
-  {
-    path: '/companies',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/companies/index'),
-        name: 'Companies',
-        meta: {
-          title: 'Companies',
-          roles: ['SUPER_ADMIN', 'OWNER'],
-          icon: 'enterprise',
-          noCache: true
-        }
-      },
-      {
-        path: 'create',
-        component: () => import('@/views/companies/create'),
-        name: 'CreateCompany',
-        meta: { title: 'Create Company', icon: 'edit' },
-        hidden: true
-      },
-      {
-        path: 'edit/:id(\\S+)',
-        component: () => import('@/views/companies/edit'),
-        name: 'EditCompany',
-        meta: { title: 'Edit Company', noCache: true, activeMenu: '/companies/index' },
-        hidden: true
-      },
-      {
-        path: 'detail/:id(\\S+)',
-        component: () => import('@/views/companies/detail'),
-        name: 'CompanyDetail',
-        meta: { title: 'Company Detail', noCache: true, activeMenu: '/companies/index' },
-        hidden: true
-      }
-    ]
-  },
 
   {
-    path: '/branches',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/branches/index'),
-        name: 'Branches',
-        meta: {
-          title: 'Branches',
-          roles: ['SUPER_ADMIN', 'OWNER'],
-          icon: 'shopping',
-          noCache: true
-        }
-      },
-      {
-        path: 'create',
-        component: () => import('@/views/branches/create'),
-        name: 'CreateCompany',
-        meta: { title: 'Create Company', icon: 'edit' },
-        hidden: true
-      },
-      {
-        path: 'edit/:id(\\S+)',
-        component: () => import('@/views/branches/edit'),
-        name: 'EditCompany',
-        meta: { title: 'Edit Company', noCache: true, activeMenu: '/branches/index' },
-        hidden: true
-      }
-    ]
-  },
-
-  {
-    path: '/bot-users',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/bot-users/index'),
-        name: 'Bot users',
-        meta: {
-          title: 'Bot users',
-          roles: ['SUPER_ADMIN', 'OWNER'],
-          icon: 'shopping',
-          noCache: true
-        }
-      },
-      {
-        path: 'create',
-        component: () => import('@/views/bot-users/create'),
-        name: 'CreateCompany',
-        meta: { title: 'Create Company', icon: 'edit' },
-        hidden: true
-      },
-      {
-        path: 'edit/:id(\\S+)',
-        component: () => import('@/views/bot-users/edit'),
-        name: 'EditCompany',
-        meta: { title: 'Edit Company', noCache: true, activeMenu: '/bot-users/index' },
-        hidden: true
-      }
-    ]
-  },
-
-  {
-    path: '/items',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/items/index'),
-        name: 'Items',
-        meta: {
-          title: 'Items',
-          roles: ['SUPER_ADMIN', 'OWNER'],
-          icon: 'items',
-          noCache: true
-        }
-      },
-      {
-        path: 'edit/:id(\\S+)',
-        component: () => import('@/views/items/edit'),
-        name: 'Items',
-        meta: {
-          title: 'Items',
-          roles: ['SUPER_ADMIN', 'OWNER'],
-          noCache: true
-        },
-        hidden: true
-      },
-      {
-        path: 'create/:id(\\S+)',
-        component: () => import('@/views/items/create'),
-        name: 'Items',
-        meta: {
-          title: 'Items',
-          roles: ['SUPER_ADMIN', 'OWNER'],
-          icon: 'shopping',
-          noCache: true
-        },
-        hidden: true
-      }
-    ]
-  },
-  {
-    path: '/settings',
+    path: '/diagnostics',
     component: Layout,
     meta: {
-      roles: ['SUPER_ADMIN', 'OWNER']
+      roles: ['SUPER_ADMIN']
     },
     children: [
       {
         path: 'index',
-        component: () => import('@/views/settings/index'),
-        name: 'Settings',
+        component: () => import('@/views/diagnostics'),
+        name: 'Модуль диагностический',
         meta: {
-          title: 'Settings',
-          roles: ['SUPER_ADMIN', 'OWNER'],
-          icon: 'settings',
+          title: 'Модуль диагностический',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
           noCache: true
         }
       }
