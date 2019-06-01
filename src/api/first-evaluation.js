@@ -1,30 +1,36 @@
 import request from '@/utils/request'
 
-export function getAll() {
+export function getAll(patientId) {
   return request({
-    url: '/patients',
-    method: 'get'
+    url: '/first-evaluation',
+    method: 'get',
+    params: {
+      patientId
+    }
   })
 }
 
 export function getById(id) {
   return request({
-    url: `/patients/${id}`,
+    url: `/first-evaluation/${id}`,
     method: 'get'
   })
 }
 
-export function create(data) {
+export function create(patientId, data) {
   return request({
-    url: '/patients',
+    url: '/first-evaluation',
     method: 'post',
-    data
+    data,
+    params: {
+      patientId
+    }
   })
 }
 
 export function update(data) {
   return request({
-    url: `/patients/${data.id}`,
+    url: `/first-evaluation/${data.id}`,
     method: 'put',
     data
   })
@@ -32,7 +38,7 @@ export function update(data) {
 
 export function deleteById(id) {
   return request({
-    url: `/patients/${id}`,
+    url: `/first-evaluation/${id}`,
     method: 'delete'
   })
 }

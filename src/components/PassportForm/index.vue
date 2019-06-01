@@ -13,8 +13,8 @@
 
         <el-form-item :label="'Пол'" prop="#">
           <el-select v-model="formData.gender" placeholder="Выберите">
-            <el-option :key="'1'" :label="'Муж.'" :value="'1'"/>
-            <el-option :key="'0'" :label="'Жен.'" :value="'0'"/>
+            <el-option :key="1" :label="'Муж.'" :value="1"/>
+            <el-option :key="2" :label="'Жен.'" :value="2"/>
           </el-select>
         </el-form-item>
 
@@ -26,19 +26,19 @@
 
         <el-form-item :label="'Группа крови по системе АВО:'" prop="#">
           <el-select v-model="formData.bloodGroup" placeholder="Выберите">
-            <el-option :key="'0'" :label="'нет данных'" :value="'0'"/>
-            <el-option :key="'1'" :label="'0(I)'" :value="'1'"/>
-            <el-option :key="'2'" :label="'А(II) '" :value="'2'"/>
-            <el-option :key="'3'" :label="'В(III) '" :value="'3'"/>
-            <el-option :key="'4'" :label="'AВ(IV)'" :value="'4'"/>
+            <el-option :key="0" :label="'нет данных'" :value="0"/>
+            <el-option :key="1" :label="'0(I)'" :value="1"/>
+            <el-option :key="2" :label="'А(II) '" :value="2"/>
+            <el-option :key="3" :label="'В(III) '" :value="3"/>
+            <el-option :key="4" :label="'AВ(IV)'" :value="4"/>
           </el-select>
         </el-form-item>
 
         <el-form-item :label="'Резус-фактор:'" prop="#">
           <el-select v-model="formData.resusFactor" placeholder="Выберите">
-            <el-option :key="'0'" :label="'нет данных'" :value="'0'"/>
-            <el-option :key="'1'" :label="'положительный'" :value="'1'"/>
-            <el-option :key="'2'" :label="'отрицательный'" :value="'2'"/>
+            <el-option :key="0" :label="'нет данных'" :value="0"/>
+            <el-option :key="1" :label="'положительный'" :value="1"/>
+            <el-option :key="2" :label="'отрицательный'" :value="2"/>
           </el-select>
         </el-form-item>
 
@@ -62,17 +62,17 @@
 
         <el-form-item :label="'Последний известный статус больного: '" prop="#">
           <el-select v-model="formData.patientStatus" placeholder="Выберите">
-            <el-option :key="'0'" :label="'нет данных'" :value="'0'"/>
-            <el-option :key="'1'" :label="'жив; '" :value="'1'"/>
-            <el-option :key="'2'" :label="'выбыл из-под наблюдения по причине эмиграции'" :value="'2'"/>
-            <el-option :key="'3'" :label="'выбыл из-под наблюдения по причине снятия диагноза'" :value="'3'"/>
+            <el-option :key="0" :label="'нет данных'" :value="0"/>
+            <el-option :key="1" :label="'жив; '" :value="1"/>
+            <el-option :key="2" :label="'выбыл из-под наблюдения по причине эмиграции'" :value="2"/>
+            <el-option :key="3" :label="'выбыл из-под наблюдения по причине снятия диагноза'" :value="3"/>
           </el-select>
         </el-form-item>
 
         <el-form-item :label="'Тип больного'" prop="#">
           <el-select v-model="formData.patientType" placeholder="Выберите">
-            <el-option :key="'1'" :label="'Первичный больной'" :value="'1'"/>
-            <el-option :key="'2'" :label="'Вторичный больной'" :value="'2'"/>
+            <el-option :key="1" :label="'Первичный больной'" :value="1"/>
+            <el-option :key="2" :label="'Вторичный больной'" :value="2"/>
           </el-select>
         </el-form-item>
 
@@ -92,8 +92,8 @@
 
           <el-form-item :label="'Страна'" prop="#">
             <el-select v-model="formData.country" placeholder="Выберите">
-              <el-option :key="'1'" :label="'Узбекистан'" :value="'1'"/>
-              <el-option :key="'2'" :label="'другая'" :value="'2'"/>
+              <el-option :key="1" :label="'Узбекистан'" :value="1"/>
+              <el-option :key="2" :label="'другая'" :value="2"/>
             </el-select>
           </el-form-item>
 

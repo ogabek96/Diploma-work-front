@@ -2,7 +2,7 @@
   <div v-loading="loading" class="createItem-container">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <span>Регистрация пацента</span>
+        <span>Регистрация пациента</span>
       </div>
 
       <passport-form v-model="passportFormData"/>
@@ -42,6 +42,8 @@ export default {
               type: 'success',
               duration: 2000
             })
+
+            this.$router.push('/patients/index')
           }
         })
     }

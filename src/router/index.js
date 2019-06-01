@@ -89,7 +89,26 @@ export default new Router({
 })
 
 export const asyncRouterMap = [
-
+  {
+    path: '/registration',
+    component: Layout,
+    meta: {
+      roles: ['SUPER_ADMIN']
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/registration/index'),
+        name: 'Регистрация пациента',
+        meta: {
+          title: 'Регистрация пациента',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        }
+      }
+    ]
+  },
   {
     path: '/patients',
     component: Layout,
@@ -118,27 +137,17 @@ export const asyncRouterMap = [
           noCache: true,
           activeMenu: '/patients/index' },
         hidden: true
-      }
-    ]
-  },
-
-  {
-    path: '/registration',
-    component: Layout,
-    meta: {
-      roles: ['SUPER_ADMIN']
-    },
-    children: [
+      },
       {
-        path: 'index',
-        component: () => import('@/views/registration/index'),
-        name: 'Регистрация пациента',
+        path: '/patients/:id/detail',
+        component: () => import('@/views/patients/detail'),
+        name: 'Пациенты',
         meta: {
-          title: 'Регистрация пациента',
+          title: 'Пациенты',
           roles: ['SUPER_ADMIN'],
-          icon: 'peoples',
-          noCache: true
-        }
+          noCache: true,
+          activeMenu: '/patients/index' },
+        hidden: true
       }
     ]
   },
@@ -160,6 +169,54 @@ export const asyncRouterMap = [
           icon: 'peoples',
           noCache: true
         }
+      },
+      {
+        path: ':id/evaluation',
+        component: () => import('@/views/first-evaluation/evaluation-table'),
+        name: 'firstEvaluationTable',
+        meta: {
+          title: 'Модуль первичного выявления',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        },
+        hidden: true
+      },
+      {
+        path: ':patientId/evaluation/add',
+        component: () => import('@/views/first-evaluation/add'),
+        name: 'Модуль первичного выявления',
+        meta: {
+          title: 'Модуль первичного выявления',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        },
+        hidden: true
+      },
+      {
+        path: ':patientId/evaluation/:id/edit',
+        component: () => import('@/views/first-evaluation/edit'),
+        name: 'Модуль первичного выявления',
+        meta: {
+          title: 'Модуль первичного выявления',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        },
+        hidden: true
+      },
+      {
+        path: ':patientId/evaluation/:id/detail',
+        component: () => import('@/views/first-evaluation/detail'),
+        name: 'Модуль первичного выявления',
+        meta: {
+          title: 'Модуль первичного выявления',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        },
+        hidden: true
       }
     ]
   },
