@@ -35,7 +35,7 @@
       <el-table-column :label="'Действия'" prop="bloodGroup" sortable="custom" align="center" class-name="small-padding fixed-width" width="400px">
         <template slot-scope="scope">
 
-          <router-link :to="scope.row.id + '/anamnestic'">
+          <router-link :to="scope.row.id + '/diagnosis'">
             <el-button type="success">Выбрать</el-button>
           </router-link>
 

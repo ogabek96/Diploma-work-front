@@ -238,12 +238,59 @@ export const asyncRouterMap = [
           icon: 'peoples',
           noCache: true
         }
+      },
+      {
+        path: ':id/anamnestic',
+        component: () => import('@/views/anamnestic/anamnestic-table'),
+        name: 'anamnesticTable',
+        meta: {
+          title: 'Модуль анамнестические данные',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        },
+        hidden: true
+      },
+      {
+        path: ':patientId/anamnestic/add',
+        component: () => import('@/views/anamnestic/add'),
+        name: 'Модуль анамнестические данные',
+        meta: {
+          title: 'Модуль анамнестические данные',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        },
+        hidden: true
+      },
+      {
+        path: ':patientId/anamnestic/:id/edit',
+        component: () => import('@/views/anamnestic/edit'),
+        name: 'Модуль анамнестические данные',
+        meta: {
+          title: 'Модуль анамнестические данные',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        },
+        hidden: true
+      },
+      {
+        path: ':patientId/anamnestic/:id/detail',
+        component: () => import('@/views/anamnestic/detail'),
+        name: 'Модуль анамнестические данные',
+        meta: {
+          title: 'Модуль анамнестические данные',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        },
+        hidden: true
       }
     ]
   },
-
   {
-    path: '/diagnostics',
+    path: '/diagnosis',
     component: Layout,
     meta: {
       roles: ['SUPER_ADMIN']
@@ -251,7 +298,7 @@ export const asyncRouterMap = [
     children: [
       {
         path: 'index',
-        component: () => import('@/views/diagnostics'),
+        component: () => import('@/views/diagnosis'),
         name: 'Модуль диагностический',
         meta: {
           title: 'Модуль диагностический',
@@ -259,6 +306,54 @@ export const asyncRouterMap = [
           icon: 'peoples',
           noCache: true
         }
+      },
+      {
+        path: ':id/diagnosis',
+        component: () => import('@/views/diagnosis/diagnosis-table'),
+        name: 'diagnosisTable',
+        meta: {
+          title: 'Модуль диагностический',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        },
+        hidden: true
+      },
+      {
+        path: ':patientId/diagnosis/add',
+        component: () => import('@/views/diagnosis/add'),
+        name: 'Модуль диагностический',
+        meta: {
+          title: 'Модуль диагностический',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        },
+        hidden: true
+      },
+      {
+        path: ':patientId/diagnosis/:id/edit',
+        component: () => import('@/views/diagnosis/edit'),
+        name: 'Модуль диагностический',
+        meta: {
+          title: 'Модуль диагностический',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        },
+        hidden: true
+      },
+      {
+        path: ':patientId/diagnosis/:id/detail',
+        component: () => import('@/views/diagnosis/detail'),
+        name: 'Модуль диагностический',
+        meta: {
+          title: 'Модуль диагностический',
+          roles: ['SUPER_ADMIN'],
+          icon: 'peoples',
+          noCache: true
+        },
+        hidden: true
       }
     ]
   },

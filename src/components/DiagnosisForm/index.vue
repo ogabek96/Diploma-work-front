@@ -133,13 +133,6 @@
           <el-input v-model="name"/>
         </el-form-item>
 
-        <el-form-item :label="'Число опухолей:'" prop="#">
-          <el-select v-model="pol" placeholder="Выберите">
-            <el-option :key="'1'" :label="'нет'" :value="'1'"/>
-            <el-option :key="'0'" :label="'имеется в (орган).'" :value="'0'"/>
-          </el-select>
-        </el-form-item>
-
         <el-form-item :label="'Тип роста опухоли:'" prop="#">
           <el-select v-model="pol" placeholder="Выберите">
             <el-option :key="'1'" :label="'нет данных'" :value="'1'"/>
@@ -228,29 +221,70 @@
 </template>
 
 <script>
-
-const defaultFormValues = {
-  name: ''
-}
+import waves from '@/directive/waves' // Waves directive
 
 export default {
+  directives: { waves },
+  model: {
+    prop: 'formData',
+    event: 'input'
+  },
+  props: {
+    formData: {
+      type: Object,
+      default: null
+    }
+  },
   data() {
     return {
-      formValues: defaultFormValues
+      defaultFormData: {
+        primaryDiagnosis: '',
+        primaryDiagnosisDate: '',
+        comingDate: '',
+        clinicDiagnosisMKB: '',
+        clinicDiagnosisTNM: '',
+        morfologyDiagnosisMKB: '',
+        morfologyNumber: '',
+        durationSurvey: '',
+        surveyDate: '',
+        firstDiagnosisDate: '',
+        discrepancy: '',
+        finalDiagnosisDate: '',
+        finalDiagnosis: '',
+        autopsiiDiagnosis: '',
+        accomanyingIllness: '',
+        allergoStatus: '',
+        diagnosisConfirmationMethod: '',
+        tumorsNumber: '',
+        tumorsVolume: '',
+        tumorGrowthType: '',
+        metastasesDate: '',
+        regionalMetastases: '',
+        determinationMetastases: '',
+        localizationMetastases: '',
+        reasonsDiagnosis: '',
+        establishmentDate: ''
+      },
+      formLoading: true
     }
   },
   watch: {
-    formValues() {
-      this.emitChanges()
+    formData() {
+      this.$emit('input', this.formData)
     }
   },
+  created() {
+    this.init()
+  },
   methods: {
-    emitChanges() {
-      this.$emit('input', this.formValues)
+    async init() {
+      this.formLoading = true
+
+      this.formLoading = false
     }
   }
-}
 
+}
 </script>
 
 <style>
