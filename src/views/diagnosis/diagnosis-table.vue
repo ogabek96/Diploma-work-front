@@ -10,19 +10,31 @@
 
       <el-table-column :label="'Сопутствующие заболевания:'" prop="patientId" sortable="custom" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.nameInstitution }}</span>
+          <span>{{ scope.row.accomanyingIllness }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column :label="'Дата обращения'" prop="fullname" sortable="custom" align="center">
+      <el-table-column :label="'Аллергостатус'" prop="fullname" sortable="custom" align="center">
         <template slot-scope="scope">
-          <span>{{ formatDate(scope.row.comingDate) }}</span>
+          <span>{{ formatDate(scope.row.allergoStatus) }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column :label="'Ф.И.О. врача поликлиники'" prop="gender" sortable="custom" align="center">
+      <el-table-column :label="'Метод подтверждения диагноза:'" prop="gender" sortable="custom" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.fullNameDoctor }}</span>
+          <span>{{ scope.row.diagnosisConfirmationMethod }}</span>
+        </template>
+      </el-table-column>
+
+      <el-table-column :label="'Число опухолей:'" prop="gender" sortable="custom" align="center">
+        <template slot-scope="scope">
+          <span>{{ scope.row.tumorsNumber }}</span>
+        </template>
+      </el-table-column>
+
+      <el-table-column :label="'Число опухолей:'" prop="gender" sortable="custom" align="center">
+        <template slot-scope="scope">
+          <span>{{ scope.row.diagnosisConfirmationMethod }}</span>
         </template>
       </el-table-column>
 
@@ -59,8 +71,8 @@ export default {
     async init() {
       this.loading = true
 
-      const firstEvaluationReq = await getAll(this.currentPatientId)
-      this.tableData = firstEvaluationReq.data.payload.firstEvaluation
+      const diagnosisReq = await getAll(this.currentPatientId)
+      this.tableData = diagnosisReq.data.payload.diagnosis
 
       this.loading = false
     },
@@ -74,7 +86,7 @@ export default {
       const currentDate = new Date(date)
       return `${appendLeadingZeroes(currentDate.getDate())}-${appendLeadingZeroes(currentDate.getMonth() + 1)}-${currentDate.getFullYear()}`
     },
-    handleDelete(firstEvaluation) {
+    handleDelete(diagnosis) {
       this.$confirm(`Вы действительно хотите удалить данные о пациенте`, 'Внимание', {
         confirmButtonText: 'Да',
         cancelButtonText: 'Нет',
@@ -82,14 +94,14 @@ export default {
         center: true
       })
         .then(() => {
-          this.delete(firstEvaluation)
+          this.delete(diagnosis)
         })
     },
-    delete(firstEvaluation) {
+    delete(diagnosis) {
       this.loading = true
-      deleteById(firstEvaluation.id)
+      deleteById(diagnosis.id)
         .then(res => {
-          const index = this.tableData.indexOf(firstEvaluation)
+          const index = this.tableData.indexOf(diagnosis)
           this.tableData.splice(index, 1)
           if (res.data.code === 200) {
             this.$notify({
