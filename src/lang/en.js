@@ -166,6 +166,6 @@ export default {
     closeAll: 'Close All'
   },
   company: {
-    name: 'Progres'
+    name: 'Onko'
   }
 }

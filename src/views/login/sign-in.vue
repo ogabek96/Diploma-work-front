@@ -1,9 +1,6 @@
 <template>
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
-      <div class="text-center">
-        <img class="pic-404__parent" src="@/assets/custom-theme/images/logoLight.png">
-      </div>
       <div class="title-container">
         <h3 class="title">
           {{ $t('login.title') }}
