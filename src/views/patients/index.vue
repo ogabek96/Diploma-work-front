@@ -1,5 +1,10 @@
 <template>
   <div class="patients-table">
+    <div class="filter-container">
+      <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">
+        Экспорт в Excel
+      </el-button>
+    </div>
     <el-table v-loading="loading" :data="tableData" border fit highlight-current-row style="width: 100%;">
 
       <el-table-column :label="'ID больного'" prop="patientId" sortable="custom" align="center">
@@ -16,7 +21,7 @@
 
       <el-table-column :label="'Пол'" prop="gender" sortable="custom" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.gender }}</span>
+          <span>{{ $t(`patients.gender.${scope.row.gender}`) }}</span>
         </template>
       </el-table-column>
 
@@ -28,7 +33,7 @@
 
       <el-table-column :label="'Группа крови'" prop="bloodGroup" sortable="custom" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.bloodGroup }}</span>
+          <span>{{ $t(`patients.bloodGroup.${scope.row.bloodGroup}`) }}</span>
         </template>
       </el-table-column>
 
@@ -49,8 +54,9 @@
 </template>
 <script>
 import { getAll as getAllPatients, deleteById as deletePatientById } from '@/api/patient'
+import waves from '@/directive/waves' // waves directive
 export default {
-
+  directives: { waves },
   data() {
     return {
       loading: true,
@@ -105,6 +111,25 @@ export default {
           }
           this.loading = false
         })
+    },
+    handleDownload() {
+      this.downloadLoading = true
+      import('@/vendor/Export2Excel').then(excel => {
+        const tHeader = ['patienId', 'fullName', 'gender', 'birthDate', 'bloodGroup']
+        const filterVal = ['patientId', 'fullName', 'gender', 'birthDate', 'bloodGroup']
+        const data = this.formatJson(filterVal, this.tableData)
+        excel.export_json_to_excel({
+          header: tHeader,
+          data,
+          filename: 'table-list'
+        })
+        this.downloadLoading = false
+      })
+    },
+    formatJson(filterVal, jsonData) {
+      return jsonData.map(v => filterVal.map(j => {
+        return v[j]
+      }))
     }
   }
 }

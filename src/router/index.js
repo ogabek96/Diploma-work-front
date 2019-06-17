@@ -144,7 +144,7 @@ export const asyncRouterMap = [
         name: 'Пациенты',
         meta: {
           title: 'Пациенты',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           noCache: true,
           activeMenu: '/patients/index' },
         hidden: true
@@ -156,7 +156,7 @@ export const asyncRouterMap = [
     path: '/first-evaluation',
     component: Layout,
     meta: {
-      roles: ['SUPER_ADMIN']
+      roles: ['SUPER_ADMIN', 'OWNER']
     },
     children: [
       {
@@ -165,7 +165,7 @@ export const asyncRouterMap = [
         name: 'Модуль первичного выявления',
         meta: {
           title: 'Модуль первичного выявления',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         }
@@ -176,7 +176,7 @@ export const asyncRouterMap = [
         name: 'firstEvaluationTable',
         meta: {
           title: 'Модуль первичного выявления',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         },
@@ -188,7 +188,7 @@ export const asyncRouterMap = [
         name: 'Модуль первичного выявления',
         meta: {
           title: 'Модуль первичного выявления',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         },
@@ -200,7 +200,7 @@ export const asyncRouterMap = [
         name: 'Модуль первичного выявления',
         meta: {
           title: 'Модуль первичного выявления',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         },
@@ -212,7 +212,7 @@ export const asyncRouterMap = [
         name: 'Модуль первичного выявления',
         meta: {
           title: 'Модуль первичного выявления',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         },
@@ -225,7 +225,7 @@ export const asyncRouterMap = [
     path: '/anamnestic',
     component: Layout,
     meta: {
-      roles: ['SUPER_ADMIN']
+      roles: ['SUPER_ADMIN', 'OWNER']
     },
     children: [
       {
@@ -234,7 +234,7 @@ export const asyncRouterMap = [
         name: 'Модуль анамнестические данные',
         meta: {
           title: 'Модуль анамнестические данные',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         }
@@ -245,7 +245,7 @@ export const asyncRouterMap = [
         name: 'anamnesticTable',
         meta: {
           title: 'Модуль анамнестические данные',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         },
@@ -257,7 +257,7 @@ export const asyncRouterMap = [
         name: 'Модуль анамнестические данные',
         meta: {
           title: 'Модуль анамнестические данные',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         },
@@ -269,7 +269,7 @@ export const asyncRouterMap = [
         name: 'Модуль анамнестические данные',
         meta: {
           title: 'Модуль анамнестические данные',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         },
@@ -281,7 +281,7 @@ export const asyncRouterMap = [
         name: 'Модуль анамнестические данные',
         meta: {
           title: 'Модуль анамнестические данные',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         },
@@ -293,7 +293,7 @@ export const asyncRouterMap = [
     path: '/diagnosis',
     component: Layout,
     meta: {
-      roles: ['SUPER_ADMIN']
+      roles: ['SUPER_ADMIN', 'OWNER']
     },
     children: [
       {
@@ -302,7 +302,7 @@ export const asyncRouterMap = [
         name: 'Модуль диагностический',
         meta: {
           title: 'Модуль диагностический',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         }
@@ -313,7 +313,7 @@ export const asyncRouterMap = [
         name: 'diagnosisTable',
         meta: {
           title: 'Модуль диагностический',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         },
@@ -325,7 +325,7 @@ export const asyncRouterMap = [
         name: 'Модуль диагностический',
         meta: {
           title: 'Модуль диагностический',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         },
@@ -337,7 +337,7 @@ export const asyncRouterMap = [
         name: 'Модуль диагностический',
         meta: {
           title: 'Модуль диагностический',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         },
@@ -349,7 +349,7 @@ export const asyncRouterMap = [
         name: 'Модуль диагностический',
         meta: {
           title: 'Модуль диагностический',
-          roles: ['SUPER_ADMIN'],
+          roles: ['SUPER_ADMIN', 'OWNER'],
           icon: 'peoples',
           noCache: true
         },
